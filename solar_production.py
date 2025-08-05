@@ -60,7 +60,7 @@ def read_production(year: str = "2020", yearly_average: float = 23_000):
         Year to use for the datetime index
     yearly_average: Yearly average prpoduction in kWh
     """
-    fn = "/home/u54671/Documents/strøm_pris/GSA_Report_Ås_Norway.xlsx"
+    fn = "GSA_Report_Ås_Norway.xlsx"
 
     # Read the Excel file containing hourly production profiles
     df = pd.read_excel(fn, sheet_name="Hourly_profiles", skiprows=4, nrows=24, usecols=range(1, 13))
@@ -191,4 +191,3 @@ def apparent_adoption_factor(adoption_factor, year):
     series = series.resample("h").ffill()
     series = series.loc[year]
     return series
-
